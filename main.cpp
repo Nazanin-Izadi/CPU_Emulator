@@ -6,6 +6,7 @@
 enum Ins {
 	ADD,
 	DUMP,
+	EXIT,
 };
 
 
@@ -79,11 +80,13 @@ int main(int argc, char** argv)
 			std::cout << "\tI: " << registers::I << std::endl;
 
 		}
+		else if (registers::I == EXIT) {
+			std::cout << "shutting down!" << std::endl;
+			std::exit(EXIT_SUCCESS);
+		}
 		else {
 			std::cout << "Illegal Instruction." << std::endl;
 			std::exit(EXIT_FAILURE);
 		}
 	}
-
-	std::exit(EXIT_SUCCESS);
 }
